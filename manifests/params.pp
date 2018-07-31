@@ -5,13 +5,13 @@ class fluentd::params {
 
   case $facts['osfamily'] {
     'redhat': {
-      $repo_url = 'http://packages.treasuredata.com/2/redhat/$releasever/$basearch'
+      $repo_url = 'http://packages.treasuredata.com/3/redhat/$releasever/$basearch'
     }
 
     'debian': {
       $distro_id = downcase($facts['lsbdistid'])
       $distro_codename = $facts['lsbdistcodename']
-      $repo_url = "http://packages.treasuredata.com/2/${distro_id}/${distro_codename}/"
+      $repo_url = "http://packages.treasuredata.com/3/${distro_id}/${distro_codename}/"
     }
 
     default: {
