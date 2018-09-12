@@ -13,8 +13,8 @@
 # pidfile:           /var/run/td-agent/td-agent.pid
 
 export PATH=/sbin:/usr/sbin:/bin:/usr/bin
-export AWS_SECRET_ACCESS_KEY="<%= @aws_sec_key %>"
-export AWS_ACCESS_KEY_ID="<%= @aws_key_id %>"
+export AWS_SECRET_ACCESS_KEY=<%= @aws_sec_key %>
+export AWS_ACCESS_KEY_ID=<%= @aws_key_id %>
 
 TD_AGENT_NAME=td-agent
 TD_AGENT_HOME=/opt/td-agent
