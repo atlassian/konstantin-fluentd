@@ -15,6 +15,7 @@ class fluentd::install inherits fluentd {
       ~> exec { '/usr/bin/systemctl daemon-reload':
       refreshonly => true,
     }
+      ~> notify  => Class['Fluentd::Service'],
   }
 
   -> file { $fluentd::config_path:
