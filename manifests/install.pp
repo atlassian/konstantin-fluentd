@@ -7,10 +7,10 @@ class fluentd::install inherits fluentd {
     ensure => $fluentd::package_ensure,
   }
 
-  -> if $fluentd::init_manage {
-    file { '/etc/init.d/td-agent':
+  -> if $fluentd::systemd_manage {
+    file { '/usr/lib/systemd/system/td-agent.service':
       ensure  => file,
-      content => template('fluentd/td-agent.erb'),
+      content => template('fluentd/td-agent.service.erb'),
     }
       ~> exec { '/usr/bin/systemctl daemon-reload':
       refreshonly => true,

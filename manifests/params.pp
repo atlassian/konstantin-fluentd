@@ -46,7 +46,7 @@ class fluentd::params {
   $config_group = 'td-agent'
   $aws_key_id = undef
   $aws_sec_key = undef
-  $init_manage = false
+  $systemd_manage = false
   $configs = {}
 
   $plugins = {}
