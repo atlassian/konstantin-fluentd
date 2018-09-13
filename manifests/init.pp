@@ -4,7 +4,7 @@
 class fluentd (
   Optional[String] $aws_key_id = $::fluentd::params::aws_key_id,
   Optional[String] $aws_sec_key = $::fluentd::params::aws_sec_key,
-  Boolean $systemd_manage = $::fluentd::params::init_manage,
+  Boolean $systemd_manage = $::fluentd::params::systemd_manage,
   Boolean $repo_install = $::fluentd::params::repo_install,
   String $repo_name = $::fluentd::params::repo_name,
   String $repo_desc = $::fluentd::params::repo_desc,
