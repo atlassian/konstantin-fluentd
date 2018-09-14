@@ -1,21 +1,20 @@
 class fluentd::install inherits fluentd {
-  if $fluentd::repo_install {
-    require fluentd::install_repo
-  }
-
-  package { $fluentd::package_name:
-    ensure => $fluentd::package_ensure,
-  }
-
-  -> if $fluentd::systemd_manage {
+  if $fluentd::systemd_manage {
     file { '/usr/lib/systemd/system/td-agent.service':
       ensure  => file,
-      notify  => Class['Fluentd::Service'],
       content => template('fluentd/td-agent.service.erb'),
     }
       ~> exec { '/usr/bin/systemctl daemon-reload':
       refreshonly => true,
     }
+  }
+
+ if $fluentd::repo_install {
+    require fluentd::install_repo
+  }
+
+  package { $fluentd::package_name:
+    ensure => $fluentd::package_ensure,
   }
 
   -> file { $fluentd::config_path:
